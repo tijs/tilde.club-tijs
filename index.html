@@ -1,0 +1,48 @@
+<html>
+<head><title>My tilde.club page</title></head>
+<!-- I like to mix presentation and content -->
+<style>
+body {
+  background: beige;
+}
+
+.dialog {
+  width: 350px;
+  margin: 0 auto;
+  margin-top: 100px;
+  background: lightgrey;
+  padding: 20px;
+  border: 4px solid grey;
+  color: darkgrey;
+  font: 14px/16px Gill Sans;
+}
+
+[contenteditable] {
+  outline: 1px dotted saddlebrown;
+  padding: 0.5em 1.5em;
+  text-align: center;
+  background: seashell;
+  color: skyblue;
+}
+</style>
+<body>
+<div class="dialog">
+  <h1>My ~ Flows Hard</h1>
+  <p>Once upon a time in Alaska.</p>
+  <p id="editable" contenteditable="true">< insert seal joke here ></p>
+  <p>The end.</p>
+</div>
+<script>
+var key = "sealjoke",
+    contentEl = document.getElementById("editable");
+
+// load from save
+contentEl.innerHTML = localStorage[key] || '';
+
+// save on change
+contentEl.onkeyup=function() {
+    localStorage[key] = contentEl.innerHTML;
+};
+</script>
+</body>
+</html>
